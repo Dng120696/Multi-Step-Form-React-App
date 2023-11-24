@@ -10,7 +10,7 @@ import { Info } from "../components/Info";
 
 function PersonalInfo() {
   const [focusedInput, setFocusedInput] = useState(null);
-  const { state, validateInput } = useFormContext();
+  const { state, validateInput, dispatch } = useFormContext();
   const navigate = useNavigate();
   const {
     isfull_nameError,
@@ -72,16 +72,19 @@ function PersonalInfo() {
       }
     }
 
-    // dispatch({ type: "SUBMIT_FORM" });
+    dispatch({ type: "SUBMIT_FORM" });
     navigate("/select_plan");
   }
 
   return (
-    <section className="p-8 md:pt-16 md:px-12 md:pb-10 relative">
-      <Title>Personal Info</Title>
-      <Info>Please provide your name, email address, and phone number</Info>
-      <form className="my-10" onSubmit={handleSubmitForm}>
-        <div className="mb-8 relative">
+    <form
+      className="md:flex md:flex-col md:justify-between h-full"
+      onSubmit={handleSubmitForm}
+    >
+      <section className="px-12 py-16 md:pt-16 md:pl-12 md:pr-28 md:pb-10 absolute z-50 md:z-10 md:relative top-1/2 md:top-0  left-1/2 md:left-0 w-[90%] md:w-full md:h-full translate-x-[-50%] translate-y-[-50%] md:translate-x-0 md:translate-y-0 bg-white shadow-[0_0_1rem_rgba(0,0,0,0.1)] md:shadow-none rounded-xl md:rounded-none">
+        <Title>Personal Info</Title>
+        <Info>Please provide your name, email address, and phone number</Info>
+        <div className="my-10 relative">
           <Label name="full_name"> Name</Label>
           <InputElement
             type="text"
@@ -109,7 +112,7 @@ function PersonalInfo() {
             <InputError>{email_addressError}</InputError>
           )}
         </div>
-        <div className="mb-8 relative">
+        <div className="md:mb-8 relative">
           <Label name="phone_number">Phone Number</Label>
           <InputElement
             type="number"
@@ -122,11 +125,13 @@ function PersonalInfo() {
           />
           {isphone_numberError && <InputError>{phone_numberError}</InputError>}
         </div>
-        <button className="absolute bottom-10 right-12 px-10 py-4 bg-marine-blue text-magnolia rounded-lg text-xl font-medium">
+      </section>
+      <div className="absolute md:relative bottom-0 right-0 w-full p-6 md:px-28 flex justify-end items-center bg-white ">
+        <button className="px-10 py-4 bg-marine-blue text-magnolia rounded-lg text-xl font-medium overflow-hidden">
           Next Step
         </button>
-      </form>
-    </section>
+      </div>
+    </form>
   );
 }
 

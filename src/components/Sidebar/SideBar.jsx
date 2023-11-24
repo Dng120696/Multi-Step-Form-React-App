@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 
 export function SideBar() {
   return (
-    <section className="bg-[url('./assets/images/bg-sidebar-mobile.svg')] md:bg-[url('./assets/images/bg-sidebar-desktop.svg')] bg-no-repeat bg-bottom bg-cover rounded-2xl overflow-hidden text-white p-16 text-2xl">
-      <ul className="link flex gap-6 md:gap-10 flex-col">
+    <section className="bg-[url('./assets/images/bg-sidebar-mobile.svg')] md:bg-[url('./assets/images/bg-sidebar-desktop.svg')] bg-no-repeat bg-center md:bg-bottom bg-cover rounded-2xl overflow-hidden text-white p-16 text-2xl h-[30vh] md:h-full ">
+      <ul className="link flex items-center md:items-start justify-center  gap-6 md:gap-10 md:flex-col">
         <li className="flex items-center gap-6 md:gap-10">
           <NavLink
             to="/"
@@ -11,7 +11,7 @@ export function SideBar() {
           >
             1
           </NavLink>
-          <span className="uppercase">
+          <span className="uppercase hidden md:block">
             <small className="block text-xl text-pastel-blue">Step 1</small>
             <small className="font-bold text-2xl text-alabaster">
               Your Info
@@ -26,7 +26,7 @@ export function SideBar() {
           >
             2
           </NavLink>
-          <span className="uppercase">
+          <span className="uppercase hidden md:block">
             <small className="block text-pastel-blue">Step 2</small>
             <small className="font-bold text-2xl text-alabaster">
               Select Plan
@@ -41,7 +41,7 @@ export function SideBar() {
           >
             3
           </NavLink>
-          <span className="uppercase">
+          <span className="uppercase hidden md:block">
             <small className="block text-pastel-blue">Step 3</small>
             <small className="font-bold text-2xl text-alabaster">Add-ons</small>
           </span>
@@ -54,7 +54,7 @@ export function SideBar() {
           >
             4
           </NavLink>
-          <span className="uppercase">
+          <span className="uppercase hidden md:block">
             <small className="block text-pastel-blue">Step 4</small>
             <small className="font-bold text-2xl text-alabaster">summary</small>
           </span>

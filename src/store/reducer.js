@@ -21,7 +21,9 @@ function reducer(state, action) {
       };
     }
     case "SUBMIT_FORM":
-      return { ...state, full_name: "", email_address: "", phone_number: "" };
+      return { ...state, isCompleted: true };
+    case "SET_CONFIRM":
+      return { ...state, isConfirm: action.payload };
     case "SET_BILL":
       return {
         ...state,

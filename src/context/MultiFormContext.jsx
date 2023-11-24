@@ -13,9 +13,9 @@ function FormProvider({ children }) {
     dispatch({ type: "SET_INPUT", payload: { name, value } });
   }
 
-  function validateInput(field, message) {
+  const validateInput = useCallback((field, message) => {
     dispatch({ type: "VALIDATE_INPUT", payload: { field, message } });
-  }
+  }, []);
 
   const checkError = (error) =>
     error ? "border-1 border-rose-500" : "border-[1px_solid_rgba(0,0,0,0.1)]";

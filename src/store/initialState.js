@@ -6,6 +6,8 @@ export const initialState = {
   bill_value: 9,
   active_bill: "Arcade",
   isYearly: false,
+  isCompleted: false,
+  isConfirm: false,
   add_ons: [
     {
       id: 1,
